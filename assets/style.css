@@ -1,0 +1,40 @@
+.main{
+    display: flexbox;
+}
+
+#current-weather {
+    padding: 3px;
+    height: 150px;
+    width: 800px;
+    margin-left: auto;
+    margin-right: 10px;
+    border: 2px solid black;
+}
+
+#five-day-forecast {
+    margin-top: 20px;
+    height: 200px;
+    width: 800px;
+    margin-left: auto;
+    margin-right: 10px;
+    border: 2px solid black;
+}
+
+#five-day-forecast{
+    
+    
+}
+
+.box{
+    font-size: 10px;
+    text-align: center;
+    margin: 20px;
+    display: inline-block;
+    width: 100px;
+    height: 170px;
+    background-color: lightblue;
+}
+
+.box>.p{
+    margin: 0;
+}

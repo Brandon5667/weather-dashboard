@@ -10,10 +10,59 @@
 </head>
 <body>
     <header><h1>Weather Dashboard</h1></header>
-    <div>
-        <label for="city">Type your city here:</label>
-        <input type="text">
-    </div>
-    
+    <main>
+        <form id="get-city">
+            <label for="city">Type your city here:</label><br>
+            <input type="text" id="city-field"/><br>
+            <input type="submit" id="submit-button"/>
+            <div id="search-history"></div>
+        </form>
+        <div id="current-weather">
+            <p id="city"></p>
+            <p id="temp"></p>
+            <p id="wind"></p>
+            <p id="humidity"></p>
+        </div>
+        <div id="five-day-forecast">
+            <section class="box" id="day0">
+                <p id="date"></p>
+                <p id="icon"></p>   
+                <p id="temp"></p>
+                <p id="wind"></p>
+                <p id="humidity"></p>
+            </section>
+            <section class="box" id="day1">
+                <p id="date"></p>
+                <p id="icon"></p>
+                <p id="temp"></p>
+                <p id="wind"></p>
+                <p id="humidity"></p>
+            </section>
+            <section class="box" id="day2">
+                <p id="date"></p>
+                <p id="icon"></p>
+                <p id="temp"></p>
+                <p id="wind"></p>
+                <p id="humidity"></p>
+            </section>
+            <section class="box" id="day3">
+                <p id="date"></p>
+                <p id="icon"></p>
+                <p id="temp"></p>
+                <p id="wind"></p>
+                <p id="humidity"></p>
+            </section>
+            <section class="box" id="day4">
+                <p id="date"></p>
+                <p id="icon"></p>
+                <p id="temp"></p>
+                <p id="wind"></p>
+                <p id="humidity"></p>
+            </section>
+            
+        </div>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script src="assets/script.js"></script>
 </body>
 </html>
