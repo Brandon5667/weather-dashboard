@@ -103,11 +103,21 @@ var updateCurrentWeather = function(city,temp,wind,humidity){
 }
 
 var searchHistoryButtons = function(city){
-    $searchHistory.append(`<button id="city-history" onclick="function city(){var city = `+city+`};getWeatherData(`+city+`);getFiveDayForecast(`+city+`)">`+city+`</button>`);
+    $searchHistory.append(`<button data-city="`+city+`" id="city-history">`+city+`</button>`);
 }
 
+function handleClickHistory(event){
+    console.log(event);
+    console.log($(event.target).data("city"));
+    var city = $(event.target).data("city");
+    getWeatherData(city);
+    getFiveDayForecast(city); 
+}
+// function city(){var city = `+city+`};getWeatherData(`+city+`);getFiveDayForecast(`+city+`)
 var initListeners = function(){
     console.log("initListeners");
+
+    $searchHistory.click(handleClickHistory);
 
     $getCity.submit( function(event){
         event.preventDefault();
