@@ -74,7 +74,7 @@ var dateFormatting = function(fiveDays){
         fiveDaysFormatted = fiveDaysFormatted.concat(formatDay);
         }
         console.log(fiveDaysFormatted);
-        return fiveDaysFormatted
+        return fiveDaysFormatted;
 }
 
 var getWeatherData = function(city){
@@ -102,7 +102,9 @@ var updateCurrentWeather = function(city,temp,wind,humidity){
     $("#humidity").html("Humidity: "+humidity);
 }
 
-
+var searchHistoryButtons = function(city){
+    $searchHistory.append(`<button id="city-history" onclick="function city(){var city = `+city+`};getWeatherData(`+city+`);getFiveDayForecast(`+city+`)">`+city+`</button>`);
+}
 
 var initListeners = function(){
     console.log("initListeners");
@@ -115,6 +117,7 @@ var initListeners = function(){
 
         getWeatherData(city);
         getFiveDayForecast(city);
+        searchHistoryButtons(city);
         
     });
         
