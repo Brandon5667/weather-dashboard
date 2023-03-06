@@ -9,10 +9,15 @@ var fiveDayWind = [];
 var fiveDayHumidity = [];
 var fiveDayIcon = [];
 var fiveDaysFormatted = [];
+for (i=0; i<5; i++){
+    $("#day"+i).children().eq(1).prepend(`<img id="weather-icon" />`);
+
+}
 
 var getFiveDayForecast = function(city){
 // 36.1501 -86.2833
     var weatherUrl = "https://api.openweathermap.org/data/2.5/forecast?q="+city+"&units=imperial&appid=67418b0882599161cc22fb3e2305cb33"
+    console.log("five day forecast for :"+city)
     fetch(weatherUrl)
         .then(function(response){
             console.log("got forecast response");
@@ -20,6 +25,13 @@ var getFiveDayForecast = function(city){
         })
         .then(function(data){
             console.log("forecast", data);
+            fiveDays = [];
+            fiveDayTemp = [];
+            fiveDayWind = [];
+            fiveDayHumidity = [];
+            fiveDayIcon = [];
+            fiveDaysFormatted = [];
+
             for (i=4; i<44; i = i+8){
                 fiveDays.push(data.list[i].dt_txt);
                 fiveDayTemp.push(data.list[i].main.temp);
@@ -39,8 +51,12 @@ var getFiveDayForecast = function(city){
 var updateFiveDayForecast = function(fiveDaysFormatted,fiveDayTemp,fiveDayWind,fiveDayHumidity,fiveDayIcon){
     console.log("update forecast"+ fiveDayTemp);
     for (i=0; i<fiveDaysFormatted.length; i++){
+        $("#weather-icon").remove();
+    }    
+    for (i=0; i<fiveDaysFormatted.length; i++){
+        console.log("done"+i);
         $("#day"+i).children().eq(0).html(fiveDaysFormatted[i]);
-        $("#day"+i).children().eq(1).prepend(`<img src="http://openweathermap.org/img/wn/${fiveDayIcon[i]}.png"/>`);
+        $("#day"+i).children().eq(1).prepend(`<img id="weather-icon" src="http://openweathermap.org/img/wn/${fiveDayIcon[i]}.png"/>`);
         $("#day"+i).children().eq(2).html("Temp: "+fiveDayTemp[i]);
         $("#day"+i).children().eq(3).html("Wind Speed: "+fiveDayWind[i]);
         $("#day"+i).children().eq(4).html("Humidity: "+fiveDayHumidity[i]);
